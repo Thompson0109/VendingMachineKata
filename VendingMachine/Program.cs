@@ -1,5 +1,5 @@
 ﻿using System;
-using static VendingMachine.Product;
+using static VendingMachine.Inventory;
 
 namespace VendingMachine;
 class Program
@@ -10,12 +10,11 @@ class Program
 
         Console.WriteLine("Hello HTere");
             VendingMachine vm = new VendingMachine();
-            Product product = new Product();
+            Inventory inventory = new Inventory();
 
-         string VendingMachineItem;
-           product.AddItem("Cola" ,5);
-           product.AddItem("Crisps", 5);
-           product.AddItem("Chocolate", 5);
+           inventory.AddItem("Cola" ,5);
+           inventory.AddItem("Crisps", 5);
+           inventory.AddItem("Chocolate", 5);
 
         Console.WriteLine("INSERT COIN");
         string CoinInput = Console.ReadLine();
@@ -26,20 +25,19 @@ class Program
             {
                 vm.AcceptCoin(coin);
                 Console.WriteLine("Your current balance is {0} cents.", vm.GetBalance());
-            
             }
             else
             { 
               Console.WriteLine("What product do you want?");
                 string ProductInput = Console.ReadLine();
-                product.DispenseItem(ProductInput);
+                inventory.DispenseItem(ProductInput);
             }
                 Console.WriteLine("INSERT COIN");
                 CoinInput = Console.ReadLine();
         }
         vm.MakeChange();
-        product.DispenseItem("Cola");
-        vm.DisplayItems();
+        inventory.DispenseItem("Cola");
+       
 /*
              Console.WriteLine("INSERT DESIRED ITEM");
         string ItemInput = Console.ReadLine();

@@ -20,10 +20,10 @@ public class VendingMachine
     {
          // Initialize properties
         currentAmount = 0;
-        Inventory = new Product();
+        Inventory = new Inventory();
     }
 
-    public Product Inventory { get; private set; }
+    public Inventory Inventory { get; private set; }
  
 
      public void AcceptCoin(int coin)
@@ -88,13 +88,7 @@ public class VendingMachine
     }
  
 
-    public void DisplayItems() {
-        Console.WriteLine("Available items:");
-        foreach (KeyValuePair<string, int> item in Inventory.inventory) {
-            Console.WriteLine("{0} ({1} cents) - {2} left", item.Key, Inventory.GetItemPrice(item.Key), item.Value);
-        }
-    }
-
+   
   
     public bool IsExactChangeRequired()
     {
