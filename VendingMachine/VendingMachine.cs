@@ -25,12 +25,29 @@ public class VendingMachine
     }
 
     
+    public void AddItem(string item, int count)
+    {
+        if (inventory.ContainsKey(item))
+        {
+            Console.WriteLine(item);
+            inventory[item] += count;
+            
+        }
+        else
+        {
+            inventory.Add(item, count);
+        }
+        Console.WriteLine(item + "Added");
+    }
+
     public void SelectProduct(string product)
     {
         // Check if product is in stock
         // Check if current amount is sufficient
         // Dispense product and update display
         // If not, display price or not enough money
+
+        
     }
 
     public void MakeChange()
@@ -43,6 +60,10 @@ public class VendingMachine
     {
         // Return current amount to user
         // Update display
+    }
+    public int GetBalance()
+    {
+        return 250;
     }
 
     public bool IsProductSoldOut(string product)
