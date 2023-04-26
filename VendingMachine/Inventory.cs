@@ -7,7 +7,7 @@ public class Inventory{
 
 
   public Dictionary<string, int> inventory;
-  public Coins CoinBank { get; set; }
+  public CoinBank CoinBank { get; set; }
 
 
 public Inventory()
@@ -40,14 +40,14 @@ public Inventory()
         int price = GetItemPrice(itemName);
    
         if (price > CoinBank.currentAmount) {
-            Console.WriteLine("Not enough balance. Price: {0} cents, Balance: {1} cents", price, CoinBank.currentAmount);
+            Console.WriteLine("Not enough balance. Price: {0} p, Balance: {1} p", price, CoinBank.currentAmount);
             return;
         }
         
         DispenseItem(itemName);
 
         CoinBank.currentAmount -= price;
-        Console.WriteLine("Purchased item: {0} (price: {1} cents). Balance: {2} cents", itemName, price, CoinBank.currentAmount);
+        Console.WriteLine("Purchased item: {0} (price: {1} p). Balance: {2} p", itemName, price, CoinBank.currentAmount);
     }
 
     
@@ -115,7 +115,7 @@ public Inventory()
      private void DisplayItems() {
         Console.WriteLine("Available items:");
         foreach (KeyValuePair<string, int> item in inventory) {
-            Console.WriteLine("{0} ({1} cents) - {2} left", item.Key, GetItemPrice(item.Key), item.Value);
+            Console.WriteLine("{0} ({1} p) - {2} left", item.Key, GetItemPrice(item.Key), item.Value);
         }
     }
 }

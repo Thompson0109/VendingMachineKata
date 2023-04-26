@@ -17,11 +17,11 @@ public class VendingMachine
     // Constructor
     public VendingMachine()
     {
-            CoinBank = new Coins();
+            CoinBank = new CoinBank();
             InventoryCollection = new Inventory();
     }
 
-    public Coins CoinBank { get; set; }
+    public CoinBank CoinBank { get; set; }
     public Inventory InventoryCollection { get; set; }
 
     

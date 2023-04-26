@@ -9,7 +9,7 @@ class Program
 
         Console.WriteLine("Hello HTere");
             VendingMachine vm = new VendingMachine();
-            Coins coins = new Coins();
+            CoinBank coins = new CoinBank();
             Inventory inventory = new Inventory();
 
            inventory.AddItem("Cola" ,5);
@@ -24,7 +24,7 @@ class Program
             if (int.TryParse(CoinInput, out coin))
             {
                 coins.AcceptCoin(coin);
-                Console.WriteLine("Your current balance is {0} cents.", coins.GetBalance());
+                Console.WriteLine("Your current balance is {0} p.", coins.GetBalance());
             }
             else
             { 
