@@ -11,6 +11,7 @@ class Program
         Console.WriteLine("Hello HTere");
             VendingMachine vm = new VendingMachine();
             Inventory inventory = new Inventory();
+            Coins coins = new Coins();
 
            inventory.AddItem("Cola" ,5);
            inventory.AddItem("Crisps", 5);
@@ -23,8 +24,8 @@ class Program
             int coin = 0;
             if (int.TryParse(CoinInput, out coin))
             {
-                vm.AcceptCoin(coin);
-                Console.WriteLine("Your current balance is {0} cents.", vm.GetBalance());
+                coins.AcceptCoin(coin);
+                Console.WriteLine("Your current balance is {0} cents.", coins.GetBalance());
             }
             else
             { 
@@ -35,7 +36,7 @@ class Program
                 Console.WriteLine("INSERT COIN");
                 CoinInput = Console.ReadLine();
         }
-        vm.MakeChange();
+        coins.MakeChange();
         inventory.DispenseItem("Cola");
        
 /*
