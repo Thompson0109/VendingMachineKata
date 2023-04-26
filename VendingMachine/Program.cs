@@ -10,8 +10,8 @@ class Program
 
         Console.WriteLine("Hello HTere");
             VendingMachine vm = new VendingMachine();
-            Inventory inventory = new Inventory();
             Coins coins = new Coins();
+            Inventory inventory = new Inventory(coins);
 
            inventory.AddItem("Cola" ,5);
            inventory.AddItem("Crisps", 5);
@@ -31,13 +31,13 @@ class Program
             { 
               Console.WriteLine("What product do you want?");
                 string ProductInput = Console.ReadLine();
-                inventory.DispenseItem(ProductInput);
+                
+                inventory.PurchaseItem(ProductInput);
             }
                 Console.WriteLine("INSERT COIN");
                 CoinInput = Console.ReadLine();
         }
         coins.MakeChange();
-        inventory.DispenseItem("Cola");
        
 /*
              Console.WriteLine("INSERT DESIRED ITEM");
