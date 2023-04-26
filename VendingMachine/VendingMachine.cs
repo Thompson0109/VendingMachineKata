@@ -40,6 +40,46 @@ public class VendingMachine
         Console.WriteLine(item + "Added");
     }
 
+     public void AcceptCoin(int coin)
+    {
+        // Check if coin is valid
+        switch (coin)
+        {
+            case 1:
+                AddAmount(coin);
+                break;
+            case 2:
+                AddAmount(coin);
+                break;
+            case 5:
+                AddAmount(coin);
+                break;
+            case 10:
+               AddAmount(coin);
+                break;
+            case 20:
+                AddAmount(coin);
+                break;
+            case 50:
+                AddAmount(coin);
+                break;
+            case 100:
+                AddAmount(coin);
+                break;
+            case 200:
+                AddAmount(coin);
+                break;
+            default:
+                // Reject coin
+                Console.WriteLine($"Coin Rejected. {coin} Is not a value option ");
+                // Place coin in coin return
+                break;
+        }
+    }
+    public void AddAmount(int coin){
+                currentAmount += coin;
+    }
+
     public void SelectProduct(string product)
     {
         // Check if product is in stock
@@ -52,6 +92,9 @@ public class VendingMachine
 
     public void MakeChange()
     {
+
+        Console.WriteLine("Your change is {0} cents.", balance);
+        balance = 0;
         // Calculate change
         // Dispense change and update display
     }
@@ -63,7 +106,7 @@ public class VendingMachine
     }
     public int GetBalance()
     {
-        return 250;
+        return currentAmount;
     }
 
     public bool IsProductSoldOut(string product)

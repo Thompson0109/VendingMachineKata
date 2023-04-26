@@ -11,12 +11,29 @@ class Program
            vm.AddItem("Crisps", 50);
            vm.AddItem("Chocolate", 65);
 
-          Console.WriteLine("Welcome to the vending machine!");
-          Console.WriteLine("Please insert a coin (5, 10, or 25) or enter 'q' to quit.");
+          Console.WriteLine("INSERT COIN");
         
-          string input = Console.ReadLine();
-
-   
+        
+        string input = Console.ReadLine();
+        while (input != "q")
+        {
+            int coin = 0;
+            if (int.TryParse(input, out coin))
+            {
+                vm.AcceptCoin(coin);
+                Console.WriteLine("Your current balance is {0} cents.", vm.GetBalance());
+            }
+            else
+            {
+                //Dispense Item 
+            }
+            
+            Console.WriteLine("INSERT COIN");
+            input = Console.ReadLine();
+        }
+        
+        vm.MakeChange();
     }
+   }
     
-}
+
