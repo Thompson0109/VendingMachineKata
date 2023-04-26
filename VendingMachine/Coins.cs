@@ -4,7 +4,7 @@ namespace VendingMachine;
 
 public class Coins{
 
-    private int currentAmount;
+    public int currentAmount;
 
     public Coins()
     {
@@ -53,7 +53,6 @@ public class Coins{
 
     public void MakeChange()
     {
-
         Console.WriteLine("Your change is {0} cents.", currentAmount);
         currentAmount = 0;
         // Calculate change
@@ -76,7 +75,4 @@ public class Coins{
         // Update display
         return true;
     }
-
-
-
 }

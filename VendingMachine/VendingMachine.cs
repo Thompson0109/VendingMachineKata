@@ -17,12 +17,13 @@ public class VendingMachine
     // Constructor
     public VendingMachine()
     {
-         // Initialize properties
-        Inventory = new Inventory();
+            CoinBank = new Coins();
+            InventoryCollection = new Inventory();
     }
 
-    public Inventory Inventory { get; private set; }
- 
+    public Coins CoinBank { get; set; }
+    public Inventory InventoryCollection { get; set; }
 
+    
 
 }
