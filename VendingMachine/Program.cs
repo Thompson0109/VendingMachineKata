@@ -1,15 +1,21 @@
 ﻿using System;
+using static VendingMachine.Product;
+
 namespace VendingMachine;
 class Program
 {
     static void Main(string[] args)
     {
+
+
         Console.WriteLine("Hello HTere");
             VendingMachine vm = new VendingMachine();
-            
-           vm.AddItem("Cola", 5);
-           vm.AddItem("Crisps", 5);
-           vm.AddItem("Chocolate", 5);
+            Product product = new Product();
+
+         string VendingMachineItem;
+           product.AddItem("Cola" ,5);
+           product.AddItem("Crisps", 5);
+           product.AddItem("Chocolate", 5);
 
         Console.WriteLine("INSERT COIN");
         string CoinInput = Console.ReadLine();
@@ -20,20 +26,19 @@ class Program
             {
                 vm.AcceptCoin(coin);
                 Console.WriteLine("Your current balance is {0} cents.", vm.GetBalance());
-               
-
+            
             }
             else
             { 
               Console.WriteLine("What product do you want?");
                 string ProductInput = Console.ReadLine();
-                vm.DispenseItem(ProductInput);
+                product.DispenseItem(ProductInput);
             }
                 Console.WriteLine("INSERT COIN");
                 CoinInput = Console.ReadLine();
         }
         vm.MakeChange();
-        vm.DispenseItem("Cola");
+        product.DispenseItem("Cola");
         vm.DisplayItems();
 /*
              Console.WriteLine("INSERT DESIRED ITEM");
