@@ -5,6 +5,9 @@ namespace VendingMachine;
 public class CoinBank{
 
     public int currentAmount;
+    private Dictionary<Coin, int> Coins { get; set; }
+
+
 
     public CoinBank()
     {
@@ -47,6 +50,21 @@ public class CoinBank{
                 break;
         }
     }
+
+
+        internal void Insert(Coin coin, int num)
+        {
+            if(Coins.ContainsKey(coin))
+            {
+                Coins[coin] += num;
+            }
+            else
+            {
+                Coins.Add(coin, num);
+            }
+        }
+
+        
     public void AddAmount(int coin){
                 currentAmount += coin;
     }
@@ -58,6 +76,47 @@ public class CoinBank{
         // Calculate change
         // Dispense change and update display
     }
+
+        private int CoinValue(Coin coin)
+        {
+            int value = 0;
+
+            if (coin == Coin.OneP)
+            {
+                value = 1;
+            }
+            else if (coin == Coin.TwoP)
+            {
+                value = 2;
+            }
+            else if (coin == Coin.FiveP)
+            {
+                value = 5;
+            }
+            else if (coin == Coin.TenP)
+            {
+                value = 10;
+            }
+   
+            else if (coin == Coin.TwentyP)
+            {
+                value = 10;
+            }
+            else if (coin == Coin.FiftyP)
+            {
+                value = 50;
+            }
+            else if (coin == Coin.OnePound)
+            {
+                value = 100;
+            }
+            else if (coin == Coin.TwoPound)
+            {
+                value = 200;
+            }
+
+            return value;
+        }
 
     public void ReturnCoins()
     {

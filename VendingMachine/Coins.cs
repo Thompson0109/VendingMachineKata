@@ -1,6 +1,6 @@
 
 namespace VendingMachine;
- public enum Coins
+ public enum Coin
     {
         Unknown,
         OneP,

@@ -4,6 +4,6 @@ namespace VendingMachine;
     {
         Unknown,
         Cola,
-        Candy,
-        Chips
+        Crisps,
+        Chocolate
     };

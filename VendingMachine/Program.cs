@@ -12,9 +12,9 @@ class Program
             CoinBank coins = new CoinBank();
             Inventory inventory = new Inventory();
 
-           inventory.AddItem("Cola" ,5);
-           inventory.AddItem("Crisps", 5);
-           inventory.AddItem("Chocolate", 5);
+           inventory.AddItem(Product.Cola ,5);
+           inventory.AddItem(Product.Chocolate, 5);
+           inventory.AddItem(Product.Crisps, 5);
 
         Console.WriteLine("INSERT COIN");
         string CoinInput = Console.ReadLine();
@@ -31,7 +31,7 @@ class Program
               Console.WriteLine("What product do you want?");
                 string ProductInput = Console.ReadLine();
 
-                inventory.PurchaseItem(ProductInput);
+               inventory.PurchaseItem(ProductInput);
             }
                 Console.WriteLine("INSERT COIN");
                 CoinInput = Console.ReadLine();

@@ -6,16 +6,16 @@ namespace VendingMachine;
 public class Inventory{
 
 
-  public Dictionary<string, int> inventory;
+  public Dictionary<Product, int> inventory;
   public CoinBank CoinBank { get; set; }
 
 
 public Inventory()
 {
-      inventory = new Dictionary<string, int>();
+      inventory = new Dictionary<Product, int>();
 }
 
-   public void AddItem(string item, int count)
+   public void AddItem(Product item, int count)
     {
         if (inventory.ContainsKey(item))
         {
@@ -28,7 +28,7 @@ public Inventory()
         Console.WriteLine($"{item} Added. There are currenlty {count} {item}'s");
     }
 
-     public void PurchaseItem(string itemName) {
+     public void PurchaseItem(Product itemName) {
 
         if (!inventory.ContainsKey(itemName)) {
             Console.WriteLine("Item not found: {0}", itemName);
@@ -51,7 +51,7 @@ public Inventory()
     }
 
     
-    public void SelectProduct(string product)
+    public void SelectProduct(Product product)
     {
         // Check if product is in stock
         // Check if current amount is sufficient
@@ -60,7 +60,7 @@ public Inventory()
     }
 
 
-      public void DispenseItem(string item)
+      public void DispenseItem(Product item)
     {
         if (inventory.ContainsKey(item))
         {
@@ -78,9 +78,19 @@ public Inventory()
         DisplayItems();
     }
 
+   internal void Insert(Product product, int num)
+        {
+            if(inventory.ContainsKey(product))
+            {
+                inventory[product] += num;
+            }
+            else
+            {
+                inventory.Add(product, num);
+            }
+        }
 
-
-      public bool IsProductSoldOut(string product)
+      public bool IsProductSoldOut(Product product)
         {
             // Check if product is sold out
             int quantity = inventory[product];
@@ -92,19 +102,19 @@ public Inventory()
             return true;
         }
 
-       public int GetItemPrice(string itemName) {
+       public int GetItemPrice(Product itemName) {
         // Assume that all items have the same price
         
           int price = 0;
-            if (itemName == "Cola")
+            if (itemName == Product.Cola)
             {
                 price = 100;
             }
-            else if(itemName == "Crisps")
+            else if(itemName == Product.Chocolate)
             {
                 price = 50;
             }
-            else if(itemName == "Chocolate")
+            else if(itemName == Product.Crisps)
             {
                 price = 65;
             }
@@ -114,7 +124,7 @@ public Inventory()
 
      private void DisplayItems() {
         Console.WriteLine("Available items:");
-        foreach (KeyValuePair<string, int> item in inventory) {
+        foreach (KeyValuePair<Product, int> item in inventory) {
             Console.WriteLine("{0} ({1} p) - {2} left", item.Key, GetItemPrice(item.Key), item.Value);
         }
     }
