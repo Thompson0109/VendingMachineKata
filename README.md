@@ -41,3 +41,10 @@ Things that I would want to improve on if I had more time would be:
 1) Removing all debug code 
 2) Removing the program.cs and placing all code within the VendingMachine.cs file 
 3) Make actual coin inputs for 5p,10p,20p ect. Then caulculate the actual curreny amount expect (150p = £1.50)
+
+
+
+For the purpose of this techinical task. I will just make you aware of the other branch in this repo. Unfortunatley I ran out of time last week. I tried to stick tote three hour time limit. After  that. I spent about another hour refactoring and adding types. 
+
+ All changes in this branch were solving the issues above. As well refactoring existing code to be more clean and standardised. 
+
